@@ -1,0 +1,14 @@
+# build artifacts
+game/*.o
+game/*.elf
+game/*.bin
+# never commit device firmware images / dumps here
+*.img
+*.bin.dump
+__pycache__/
+*.pyc
+
+# raw phone videos (too big for git; commit a small media/demo.gif instead)
+*.mp4
+*.mov
+*.m4v
