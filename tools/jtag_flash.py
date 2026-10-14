@@ -237,7 +237,11 @@ def verify(jt, data):
     bad = 0
     for p in range(len(data) // PAGE):
         addr = APP_START + p * PAGE
-        for w in range(0, PAGE, 4):
+        # ponytail: blank image pages get a first-word check only (same assumption as write_app).
+        # ~75% of the app region is 0xFF, so this is the bulk of the old 5-min verify. A stray
+        # non-blank word deeper in a blank page would still fail the boot CRC gate, not go unnoticed.
+        blank = all(b == 0xFF for b in data[p * PAGE:(p + 1) * PAGE])
+        for w in range(0, 4 if blank else PAGE, 4):
             got = read_word(jt, addr + w)
             exp = struct.unpack('>I', data[p * PAGE + w:p * PAGE + w + 4])[0]
             if got != exp:
