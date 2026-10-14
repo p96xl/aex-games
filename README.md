@@ -10,7 +10,9 @@ on the panel's buzzer.
 - **Raycaster**: a Wolfenstein-style first-person 3D maze. Find 3 keys to unlock
   the exit. The NEM LED works as a compass that points you to the next key.
 
-![demo](media/demo.gif) <!-- drop a phone screen-recording here (see media/) -->
+![raycaster demo](media/demo-ray.gif)
+
+![pong demo](media/demo.gif)
 
 > ⚠️ **Independent hobby / educational project. Not affiliated with, authorized
 > by, or endorsed by Medtronic.** Everything here was done on a dead, out-of-service
